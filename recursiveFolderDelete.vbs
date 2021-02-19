@@ -1,6 +1,8 @@
 ' This program delete all the folder which has the name matched in the folder_name_list below
 ' Use "Call addItemToArray(folder_name_list, <name_of_the_folder_you_want_to_delete>)" to add the folder name you want to delete
 
+root_path = "E:\HOC\VBS\VBS_Useful_Code\New folder"
+
 Redim folder_name_list(0)
 Call addItemToArray(folder_name_list, "Debug")
 Call addItemToArray(folder_name_list, ".vs")
@@ -12,9 +14,7 @@ Function addItemToArray(arr, val)
     addItemToArray = arr
 End Function
 
-Set WshShell = WScript.CreateObject("WScript.Shell")
-Set fs = CreateObject("Scripting.FileSystemObject")
-Set f = fs.GetFolder(WshShell.CurrentDirectory)
+Set f = fs.GetFolder(root_path)
 
 Sub recursiveFolderDelete(root)
     Set fs = CreateObject("Scripting.FileSystemObject")
